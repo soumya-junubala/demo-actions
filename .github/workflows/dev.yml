@@ -1,0 +1,21 @@
+# .github/workflows/dev.yml
+name: Dev CI
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Print environment variable
+      run: echo "Current Environment is ${{ vars.MY_ENV }}"
+
+    - name: Access secret
+      run: echo "Secret is ${{ secrets.MY_SECRET }}"
